@@ -1,7 +1,7 @@
 close all; clear; clc;
 
-% add  fslib feast¡¢libsvm toolbox path
-addpath(genpath('FSLib_v4.2_2017'));
+% add  fslib feastÂ¡Â¢libsvm toolbox path
+addpath(genpath('FSLib_v4.2'));
 addpath(genpath('FEAST-v2.0.0_1'));
 addpath(genpath('libsvm-3.22'));
 
@@ -20,7 +20,7 @@ load Label
 %data index/divide
 load('data_index.mat')
 
-% remove NaN¡¢ Inf
+% remove NaNÂ¡Â¢ Inf
 mask1 = isinf(F);F(mask1) = 1000; clear mask1;
 mask2 = isnan(F);F(mask2) = 0; clear mask2;
 
