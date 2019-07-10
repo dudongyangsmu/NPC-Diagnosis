@@ -6,8 +6,8 @@ Citation:
 [1] Dongyang Du, Wenbing Lv et al. Machine learning methods for optimal differentiation of recurrence versus inflammation from post- therapy nasopharyngeal 18F-FDG PET/CT images. J Nucl Med, 2018 vol. 59 no. supplement 1 125
 
 This matlab code contains 2 demos:
-1.	“demo_tr_te”: matlab codes to compute the diagnostic performance of cross-combinations by using differnet feature selection methods        and machine-learning classifiers.
-2.	“demo_heatmap”: matlab codes to prepare the AUC, test error, sensitivity and specificity for plotting heat map.
+1.	“demo_tr_te_CI”: matlab codes to compute the diagnostic performance of cross-combinations by using differnet feature selection methods        and machine-learning classifiers.
+2.	“demo_heatmap_CI”: matlab codes to prepare the AUC, test error, sensitivity and specificity for plotting heat map.
 
 ACKNOWLEDGEMENTS: other software packages
 -	Giorgio Roffo (FSLib): <https://www.mathworks.com/matlabcentral/fileexchange/56937-feature-selection-library>
