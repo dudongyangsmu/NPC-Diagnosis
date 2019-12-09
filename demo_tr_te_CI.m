@@ -32,7 +32,7 @@ for k=5                           %  select the top kth non-redundant feature
                     classification_method = listCM{methodID_cm}; % Selected
                     
                     % feature ranking
-                    fspara=10;
+                    fspara=8;
                     numToSelect=size(X_train,2);
                     if p<3
                         rank=featureSelect(X_train,Y_train,selection_method,fspara );
