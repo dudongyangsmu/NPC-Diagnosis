@@ -109,7 +109,7 @@ for k=5                           %  select the top kth non-redundant feature
                             [label,prob,cost] = predict(model,X_test(:,1:k));
                             [label_train,prob_train,cost_train] = predict(model,X_train(:,1:k));
                         case 7
-                            % RF  note: repeat 30 times to compute average
+                            % RF  note: repeat 30 times to compute average/max
                             % AUC and test error values because of the
                             % randomness of random forest. Corresponding
                             % code needs to be tuned slightly.
