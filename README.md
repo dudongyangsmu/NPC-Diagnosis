@@ -5,7 +5,7 @@ Citation:
 
 [1] Dongyang Du, Wenbing Lv et al. Machine learning methods for optimal differentiation of recurrence versus inflammation from post- therapy nasopharyngeal 18F-FDG PET/CT images. J Nucl Med, 2018 vol. 59 no. supplement 1 125
 
-This matlab code contains a demos：
+This matlab code contains a demo：
 1.	“demo_tr_te_CI”: matlab codes to compute the diagnostic performance of cross-combinations by using differnet feature selection methods and machine-learning classifiers.
 
 ACKNOWLEDGEMENTS: other software packages
