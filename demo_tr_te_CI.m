@@ -118,14 +118,6 @@ for k=5                           %  select the top kth non-redundant feature
                             [label_train,prob_train] =  predict(model,X_train(:,1:k));
                     end
                     
-                    % result of validation set
-                    [X,Y,T,auc,OPTROCPT] = perfcurve_DDY(Y_test, prob(:,2),1,'NBoot',100,'BootType','bca');  
-                    [acc,~,T_acc,~] = perfcurve_DDY(Y_test, prob(:,2),1,'XCrit','accu','NBoot',100,'BootType','bca');
-                    
-                    ind=(X(:,1)==OPTROCPT(1))&(Y(:,1)==OPTROCPT(2));
-                    spe=1-X(ind,:);
-                    sen=Y(ind,:);
-                    ACC=acc(ind,:);
                     
                     % result of training set
                     [XX_train,YY_train,TT_train,auc_train,OPTROCPT_train] = perfcurve_DDY(Y_train, prob_train(:,2),1,'NBoot',100,'BootType','bca');%,'NBoot',1000
@@ -135,6 +127,26 @@ for k=5                           %  select the top kth non-redundant feature
                     spe_train=1-XX_train(ind_train,:);
                     sen_train=YY_train(ind_train,:);
                     ACC_train=acc_train(ind_train,:);
+                    
+                    % result of validation set
+                    [X,Y,T,auc,OPTROCPT] = perfcurve_DDY(Y_test, prob(:,2),1,'NBoot',100,'BootType','bca');  
+                    threshold = TT_train(ind_train);
+                    predict_label_test=zeros(size(Y_test));
+                    for j=1:size(Y_test)
+                        if prob(j,2)>=0.5  % threshold=0.5239              
+                            predict_label_test(j)=1;  
+                        else
+                            predict_label_test(j)=-1;   
+                        end 
+                    end
+                    ACC = sum(predict_label_test==Y_test)/size(Y_test,1);
+                    tp =   sum(predict_label_test(predict_label_test==Y_test) ==1);         
+                    fn =   sum(predict_label_test(predict_label_test~=Y_test) ==-1);         
+                    fp =   sum(predict_label_test(predict_label_test~=Y_test) ==1);         
+                    tn =   sum(predict_label_test(predict_label_test==Y_test) ==-1);        
+                    sen = tp/(tp+fn);
+                    spe = tn/(tn+fp);
+                    
                     
                     % save result
                     stats.selection_method=selection_method;
